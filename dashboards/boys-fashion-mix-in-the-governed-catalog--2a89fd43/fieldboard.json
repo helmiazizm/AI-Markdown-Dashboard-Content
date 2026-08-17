@@ -1,0 +1,159 @@
+{
+  "schemaVersion": 1,
+  "dashboardId": "2a89fd43-d5d8-47d0-a53a-fc61c339e249",
+  "title": "Boys' Fashion Mix in the Governed Catalog",
+  "summary": "Boys' fashion in this catalog is casual-led children's apparel: T-shirts dominate (about 64% of 830 Boys products), followed by shirts, shorts, and jeans. Colours skew blue, white, red, yellow, and black; usage is 96% casual; and Summer is the dominant season. Coverage is assortment-based and concentrated in 2011-2012.",
+  "datasets": [
+    {
+      "id": "boys_article_top",
+      "question": "What are the top Boys article types by product count?",
+      "sqlFile": "queries/boys_article_top.sql",
+      "expectedColumns": [
+        "article_type",
+        "product_count",
+        "pct"
+      ],
+      "maxRows": 15
+    },
+    {
+      "id": "boys_master_category",
+      "question": "How do Boys products split across master categories?",
+      "sqlFile": "queries/boys_master_category.sql",
+      "expectedColumns": [
+        "master_category",
+        "product_count",
+        "pct"
+      ],
+      "maxRows": 10
+    },
+    {
+      "id": "boys_usage",
+      "question": "What usage categories do Boys products fall into?",
+      "sqlFile": "queries/boys_usage.sql",
+      "expectedColumns": [
+        "usage",
+        "product_count",
+        "pct"
+      ],
+      "maxRows": 10
+    },
+    {
+      "id": "boys_colour_top",
+      "question": "What are the most common base colours for Boys products?",
+      "sqlFile": "queries/boys_colour_top.sql",
+      "expectedColumns": [
+        "base_colour",
+        "product_count",
+        "pct"
+      ],
+      "maxRows": 20
+    },
+    {
+      "id": "boys_season",
+      "question": "How do Boys products distribute across seasons?",
+      "sqlFile": "queries/boys_season.sql",
+      "expectedColumns": [
+        "season",
+        "product_count",
+        "pct",
+        "season_order"
+      ],
+      "maxRows": 10
+    },
+    {
+      "id": "boys_year_trend",
+      "question": "What is the Boys product count by collection year?",
+      "sqlFile": "queries/boys_year_trend.sql",
+      "expectedColumns": [
+        "year",
+        "product_count"
+      ],
+      "maxRows": 20
+    },
+    {
+      "id": "boys_vs_men_share",
+      "question": "How do Boys and Men compare on shared article types?",
+      "sqlFile": "queries/boys_vs_men_share.sql",
+      "expectedColumns": [
+        "article_type",
+        "boys_count",
+        "men_count",
+        "boys_pct",
+        "men_pct"
+      ],
+      "maxRows": 20
+    }
+  ],
+  "widgets": [
+    {
+      "id": "boys_article_top_chart",
+      "datasetId": "boys_article_top",
+      "title": "Top Boys' Article Types",
+      "description": "Count of Boys products by article type, showing T-shirts lead by a wide margin.",
+      "height": 420,
+      "accessibilityText": "Horizontal bar chart listing Boys product counts by article type. T-shirts are the largest group at 531 of 830 products, followed by shirts at 78, shorts at 55, jeans at 30, and casual shoes at 24.",
+      "engine": "echarts",
+      "sourceFile": "widgets/boys_article_top_chart.echarts.json"
+    },
+    {
+      "id": "boys_master_category_chart",
+      "datasetId": "boys_master_category",
+      "title": "Boys Products by Category",
+      "description": "Share of Boys products across Apparel, Footwear, and Accessories.",
+      "height": 380,
+      "accessibilityText": "Donut chart showing Apparel holds 91.4 percent of Boys products, Footwear 6.5 percent, and Accessories 2.0 percent.",
+      "engine": "echarts",
+      "sourceFile": "widgets/boys_master_category_chart.echarts.json"
+    },
+    {
+      "id": "boys_usage_chart",
+      "datasetId": "boys_usage",
+      "title": "Usage Split: Casual Rules",
+      "description": "Share of Boys products by intended usage: Casual, Sports, or Ethnic.",
+      "height": 380,
+      "accessibilityText": "Donut chart showing Casual usage at 96.3 percent, Sports at 2.5 percent, and Ethnic at 1.2 percent of Boys products.",
+      "engine": "echarts",
+      "sourceFile": "widgets/boys_usage_chart.echarts.json"
+    },
+    {
+      "id": "boys_colour_top_chart",
+      "datasetId": "boys_colour_top",
+      "title": "Top Boys' Colours",
+      "description": "Most common base colours in the Boys assortment.",
+      "height": 380,
+      "accessibilityText": "Vertical bar chart of the top Boys colours: Blue at 159 products, White at 157, Red at 107, Yellow at 90, Black at 83, then Green and Navy Blue.",
+      "engine": "echarts",
+      "sourceFile": "widgets/boys_colour_top_chart.echarts.json"
+    },
+    {
+      "id": "boys_season_chart",
+      "datasetId": "boys_season",
+      "title": "Boys Products by Season",
+      "description": "Seasonal mix of Boys products, with Summer overwhelmingly dominant.",
+      "height": 360,
+      "accessibilityText": "Vertical bar chart showing Summer has 691 products (83.3 percent), Fall 113, Winter 20, and Spring 6.",
+      "engine": "echarts",
+      "sourceFile": "widgets/boys_season_chart.echarts.json"
+    },
+    {
+      "id": "boys_year_trend_chart",
+      "datasetId": "boys_year_trend",
+      "title": "Collection-Year Coverage",
+      "description": "Boys product counts by catalog collection year; coverage is concentrated in 2011-2012.",
+      "height": 360,
+      "accessibilityText": "Line chart showing Boys product counts by year: 1 in 2008, 164 in 2011, 646 in 2012, 11 in 2013, and 8 in 2016. Recent 'nowadays' trends cannot be firmly established from this catalog.",
+      "engine": "echarts",
+      "sourceFile": "widgets/boys_year_trend_chart.echarts.json"
+    },
+    {
+      "id": "boys_vs_men_share_chart",
+      "datasetId": "boys_vs_men_share",
+      "title": "Boys vs Men: Assortment Emphasis",
+      "description": "Share of each gender's assortment for top shared article types.",
+      "height": 420,
+      "accessibilityText": "Grouped bar chart comparing Boys and Men article-type shares. Boys put 64 percent of their assortment into T-shirts versus 23.7 percent for Men, while Men have larger shares in casual shoes, watches, and trousers.",
+      "engine": "echarts",
+      "sourceFile": "widgets/boys_vs_men_share_chart.echarts.json"
+    }
+  ]
+}

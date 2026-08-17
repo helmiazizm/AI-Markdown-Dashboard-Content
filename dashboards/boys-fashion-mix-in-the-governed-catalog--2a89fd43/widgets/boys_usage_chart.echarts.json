@@ -1,0 +1,32 @@
+{
+  "legend": {
+    "left": "center",
+    "type": "scroll",
+    "bottom": 4
+  },
+  "series": [
+    {
+      "name": "Boys products",
+      "type": "pie",
+      "label": {
+        "show": true,
+        "formatter": "{b}: {d}%"
+      },
+      "center": [
+        "50%",
+        "44%"
+      ],
+      "encode": {
+        "value": "product_count",
+        "itemName": "usage"
+      },
+      "radius": [
+        "38%",
+        "68%"
+      ]
+    }
+  ],
+  "tooltip": {
+    "trigger": "item"
+  }
+}

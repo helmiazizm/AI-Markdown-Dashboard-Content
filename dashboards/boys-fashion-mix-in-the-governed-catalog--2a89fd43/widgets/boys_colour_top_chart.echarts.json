@@ -1,0 +1,37 @@
+{
+  "grid": {
+    "top": 8,
+    "left": 8,
+    "right": 24,
+    "bottom": 8,
+    "containLabel": true
+  },
+  "xAxis": {
+    "type": "category",
+    "axisLabel": {
+      "rotate": 35
+    }
+  },
+  "yAxis": {
+    "name": "Products",
+    "type": "value"
+  },
+  "series": [
+    {
+      "name": "Products",
+      "type": "bar",
+      "encode": {
+        "x": "base_colour",
+        "y": "product_count"
+      },
+      "colorBy": "data",
+      "barMaxWidth": 26
+    }
+  ],
+  "tooltip": {
+    "trigger": "axis",
+    "axisPointer": {
+      "type": "shadow"
+    }
+  }
+}

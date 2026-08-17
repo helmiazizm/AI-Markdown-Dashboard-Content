@@ -1,0 +1,49 @@
+{
+  "grid": {
+    "top": 8,
+    "left": 8,
+    "right": 24,
+    "bottom": 64,
+    "containLabel": true
+  },
+  "xAxis": {
+    "type": "category",
+    "axisLabel": {
+      "rotate": 35
+    }
+  },
+  "yAxis": {
+    "name": "% of assortment",
+    "type": "value"
+  },
+  "legend": {
+    "left": "center",
+    "bottom": 4
+  },
+  "series": [
+    {
+      "name": "Boys %",
+      "type": "bar",
+      "encode": {
+        "x": "article_type",
+        "y": "boys_pct"
+      },
+      "barMaxWidth": 18
+    },
+    {
+      "name": "Men %",
+      "type": "bar",
+      "encode": {
+        "x": "article_type",
+        "y": "men_pct"
+      },
+      "barMaxWidth": 18
+    }
+  ],
+  "tooltip": {
+    "trigger": "axis",
+    "axisPointer": {
+      "type": "shadow"
+    }
+  }
+}

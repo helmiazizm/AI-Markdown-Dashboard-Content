@@ -1,0 +1,32 @@
+{
+  "grid": {
+    "top": 8,
+    "left": 8,
+    "right": 24,
+    "bottom": 8,
+    "containLabel": true
+  },
+  "xAxis": {
+    "type": "category"
+  },
+  "yAxis": {
+    "name": "Products",
+    "type": "value"
+  },
+  "series": [
+    {
+      "name": "Boys products",
+      "type": "line",
+      "encode": {
+        "x": "year",
+        "y": "product_count"
+      },
+      "smooth": true,
+      "areaStyle": {},
+      "symbolSize": 8
+    }
+  ],
+  "tooltip": {
+    "trigger": "axis"
+  }
+}

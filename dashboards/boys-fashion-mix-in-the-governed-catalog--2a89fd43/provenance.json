@@ -1,0 +1,18 @@
+{
+  "schemaVersion": 1,
+  "revisionId": "0f9b2bcb-4de5-4774-b842-ffa68b34f753",
+  "revisionNumber": 1,
+  "parentRevisionId": null,
+  "restoredFromRevisionId": null,
+  "sourceKind": "agent",
+  "note": "Analyze what kind of fashion do boys tend to like nowadays.",
+  "model": "deepseek/deepseek-v4-pro-0813",
+  "runId": "7c0d883f-74d2-474f-9cae-c386a62ce9d8",
+  "generatedAt": "2026-08-17T12:39:06.456Z",
+  "publicationCommit": "$GIT_COMMIT",
+  "sourceSnapshot": {
+    "id": "453131e6-b16b-4b23-bba8-e9b5883b3513",
+    "objectPrefix": "warehouse:catalog@453131e6-b16b-4b23-bba8-e9b5883b3513",
+    "snapshotDate": "2026-01-01"
+  }
+}
