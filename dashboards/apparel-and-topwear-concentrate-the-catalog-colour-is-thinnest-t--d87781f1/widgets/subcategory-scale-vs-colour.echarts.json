@@ -1,0 +1,45 @@
+{
+  "grid": {
+    "top": 20,
+    "left": 16,
+    "right": 20,
+    "bottom": 52,
+    "containLabel": true
+  },
+  "xAxis": {
+    "min": 0,
+    "name": "Distinct products (count)",
+    "type": "value",
+    "nameGap": 28,
+    "nameLocation": "middle"
+  },
+  "yAxis": {
+    "min": 0,
+    "name": "Distinct base colours (count)",
+    "type": "value",
+    "nameGap": 36,
+    "nameLocation": "middle"
+  },
+  "series": [
+    {
+      "type": "scatter",
+      "encode": {
+        "x": "product_count",
+        "y": "distinct_base_colours",
+        "tooltip": [
+          "sub_category",
+          "product_count",
+          "distinct_base_colours",
+          "products_per_colour"
+        ]
+      },
+      "itemStyle": {
+        "color": "#f5a300"
+      },
+      "symbolSize": 11
+    }
+  ],
+  "tooltip": {
+    "trigger": "item"
+  }
+}

@@ -1,0 +1,45 @@
+{
+  "grid": {
+    "top": 12,
+    "left": 12,
+    "right": 24,
+    "bottom": 48,
+    "containLabel": true
+  },
+  "xAxis": {
+    "min": 0,
+    "name": "Distinct products (count)",
+    "type": "value",
+    "nameGap": 28,
+    "nameLocation": "middle"
+  },
+  "yAxis": {
+    "type": "category",
+    "inverse": true
+  },
+  "series": [
+    {
+      "type": "bar",
+      "encode": {
+        "x": "product_count",
+        "y": "sub_category",
+        "tooltip": [
+          "sub_category",
+          "master_category",
+          "product_count",
+          "catalog_share_pct"
+        ]
+      },
+      "itemStyle": {
+        "color": "#8f6c2c"
+      },
+      "barMaxWidth": 20
+    }
+  ],
+  "tooltip": {
+    "trigger": "axis",
+    "axisPointer": {
+      "type": "shadow"
+    }
+  }
+}

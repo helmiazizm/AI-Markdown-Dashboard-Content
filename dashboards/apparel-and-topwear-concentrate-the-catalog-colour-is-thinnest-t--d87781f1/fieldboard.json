@@ -1,0 +1,98 @@
+{
+  "schemaVersion": 1,
+  "dashboardId": "d87781f1-1a30-4913-9aba-600f661859b7",
+  "title": "Apparel and Topwear concentrate the catalog; colour is thinnest there",
+  "summary": "Apparel holds 48.17% of this 44,424-product mixed-brand catalog and is the thinnest master on colour relative to scale (509.5 products per usable base colour). Concentration is sharper at sub-category: Topwear alone is 34.67% and 394.9 products per colour — more than double Shoes. Colour labels stay similarly wide; thinness is a scale effect, not a collapse in named colours. Counts are assortment only — no price, stock, or demand.",
+  "datasets": [
+    {
+      "id": "master_category_stats",
+      "question": "How do product counts and colour depth concentrate across master categories?",
+      "sqlFile": "queries/master_category_stats.sql",
+      "expectedColumns": [
+        "master_category",
+        "product_count",
+        "catalog_share_pct",
+        "distinct_base_colours",
+        "products_per_colour"
+      ],
+      "maxRows": 20
+    },
+    {
+      "id": "subcategory_product_rank",
+      "question": "Which sub-categories hold the largest share of catalog products?",
+      "sqlFile": "queries/subcategory_product_rank.sql",
+      "expectedColumns": [
+        "master_category",
+        "sub_category",
+        "product_count",
+        "catalog_share_pct"
+      ],
+      "maxRows": 15
+    },
+    {
+      "id": "subcategory_colour_depth",
+      "question": "Among sizable sub-categories, which have the fewest colours relative to their product count?",
+      "sqlFile": "queries/subcategory_colour_depth.sql",
+      "expectedColumns": [
+        "master_category",
+        "sub_category",
+        "product_count",
+        "distinct_base_colours",
+        "products_per_colour"
+      ],
+      "maxRows": 50
+    }
+  ],
+  "widgets": [
+    {
+      "id": "master-product-share",
+      "datasetId": "master_category_stats",
+      "title": "Master categories by distinct products",
+      "description": "Distinct products in each master category. Catalog share uses the full 44,424-product catalog as denominator and appears in the tooltip.",
+      "height": 400,
+      "accessibilityText": "Horizontal bars rank master categories by distinct product count. Apparel has 21,397 products (48.17% of 44,424), then Accessories 11,274 (25.38%) and Footwear 9,219 (20.75%). Those three are 94.30% of the catalog. Home is one product. Tooltip also shows catalog share percent and distinct base colours.",
+      "engine": "echarts",
+      "sourceFile": "widgets/master-product-share.echarts.json"
+    },
+    {
+      "id": "master-colour-thinness",
+      "datasetId": "master_category_stats",
+      "title": "Products per colour by master category",
+      "description": "Products per distinct usable base colour, kept in product-count order so thin colour choice can be read against scale.",
+      "height": 400,
+      "accessibilityText": "Same master-category order as the product-count chart, plotted as products per distinct usable base colour. Apparel is thinnest at 509.5, then Accessories 256.2 and Footwear 230.5. Personal Care is 61.6. Higher bars mean thinner colour variety relative to scale. Colour labels are similarly wide across the large three.",
+      "engine": "echarts",
+      "sourceFile": "widgets/master-colour-thinness.echarts.json"
+    },
+    {
+      "id": "subcategory-sku-rank",
+      "datasetId": "subcategory_product_rank",
+      "title": "Top 15 sub-categories by distinct products",
+      "description": "Largest master-plus-sub-category cells. Catalog share is of the full 44,424-product catalog, not of the parent master.",
+      "height": 440,
+      "accessibilityText": "Horizontal ranking of the 15 largest sub-categories by distinct products. Apparel Topwear leads at 15,402 (34.67% of 44,424). Footwear Shoes is next at 7,343 (16.53%). Top two cells are 51.20%; top five are 69.86%. Share is of the full catalog, not the parent master.",
+      "engine": "echarts",
+      "sourceFile": "widgets/subcategory-sku-rank.echarts.json"
+    },
+    {
+      "id": "subcategory-scale-vs-colour",
+      "datasetId": "subcategory_colour_depth",
+      "title": "Sub-category scale versus distinct base colours",
+      "description": "Each point is a sub-category with at least 100 products. Far right with few colours is large scale and thin named-colour variety.",
+      "height": 420,
+      "accessibilityText": "Scatter of 27 sub-categories with at least 100 products: x is distinct product count, y is distinct usable base colours. Topwear sits far right at 15,402 products and 39 colours. Colour counts among these cells span only 15 to 40, so large cells look thin because of volume, not missing colour names.",
+      "engine": "echarts",
+      "sourceFile": "widgets/subcategory-scale-vs-colour.echarts.json"
+    },
+    {
+      "id": "subcategory-thinnest-colour",
+      "datasetId": "subcategory_colour_depth",
+      "title": "Thinnest colour assortments among sizable sub-categories",
+      "description": "Products per distinct base colour for every sub-category with at least 100 products. Higher means fewer named colours relative to product count.",
+      "height": 520,
+      "accessibilityText": "Horizontal bars of products per distinct base colour for 27 sub-categories with at least 100 products, thinnest first. Topwear is 394.9, more than double Shoes at 183.6. Watches 82.0, Bottomwear 81.6, and Bags 78.3 follow. Free Gifts, Apparel Set, and Scarves are richest at 4.5 to 5.4.",
+      "engine": "echarts",
+      "sourceFile": "widgets/subcategory-thinnest-colour.echarts.json"
+    }
+  ]
+}
