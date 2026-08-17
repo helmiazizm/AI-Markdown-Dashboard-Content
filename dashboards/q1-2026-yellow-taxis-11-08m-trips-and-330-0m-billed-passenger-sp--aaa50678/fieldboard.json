@@ -1,0 +1,115 @@
+{
+  "schemaVersion": 1,
+  "dashboardId": "aaa50678-6179-4fb9-85ed-d9d28a084ebb",
+  "title": "Q1 2026 yellow taxis: 11.08M trips and $330.0M billed passenger spend",
+  "summary": "NYC yellow taxis recorded 11,077,206 trips and $330.03 million in billed passenger spend (SUM of total_amount, as recorded, not inflation-adjusted) in Q1 2026 — the only Q1 in the warehouse. March led on volume and on calendar-normalised daily rate; 85.60% of trips started in Manhattan, weekday evenings were the peak hours, and JFK was the spend-per-trip outlier among the busiest zones.",
+  "datasets": [
+    {
+      "id": "q1_monthly_kpis",
+      "question": "How did trip volume, recorded passenger spend, and typical trip size change across the three Q1 months?",
+      "sqlFile": "queries/q1_monthly_kpis.sql",
+      "expectedColumns": [
+        "data_month",
+        "month_name",
+        "trips",
+        "revenue_usd",
+        "avg_total_usd",
+        "avg_fare_usd",
+        "avg_distance_miles",
+        "avg_duration_minutes"
+      ],
+      "maxRows": 10
+    },
+    {
+      "id": "q1_hour_dow",
+      "question": "When in the week is Q1 pickup demand most intense?",
+      "sqlFile": "queries/q1_hour_dow.sql",
+      "expectedColumns": [
+        "pickup_day_name",
+        "pickup_iso_dow",
+        "pickup_hour",
+        "trips"
+      ],
+      "maxRows": 200
+    },
+    {
+      "id": "q1_borough",
+      "question": "Which pickup boroughs produced Q1 trips and recorded spend?",
+      "sqlFile": "queries/q1_borough.sql",
+      "expectedColumns": [
+        "pu_borough",
+        "trips",
+        "revenue_usd",
+        "share_trips_pct",
+        "avg_total_usd"
+      ],
+      "maxRows": 20
+    },
+    {
+      "id": "q1_top_zones",
+      "question": "Which pickup zones accounted for the most Q1 trips?",
+      "sqlFile": "queries/q1_top_zones.sql",
+      "expectedColumns": [
+        "pu_zone",
+        "pu_borough",
+        "trips",
+        "revenue_usd",
+        "avg_total_usd",
+        "share_trips_pct"
+      ],
+      "maxRows": 12
+    }
+  ],
+  "widgets": [
+    {
+      "id": "monthly-trips",
+      "datasetId": "q1_monthly_kpis",
+      "title": "Q1 2026 trip count by month",
+      "description": "Yellow taxi trip counts for January, February, and March 2026. All billed trips are counted, including those with non-positive totals.",
+      "height": 400,
+      "accessibilityText": "Bar chart of NYC yellow taxi trip counts in Q1 2026: January 3.72 million, February 3.40 million, March 3.95 million. After calendar normalisation (31/28/31 days), daily volume rose 120,158 to 121,424 to 127,498 trips per day. Grain is one TLC trip; all 11,077,206 Q1 trips are included.",
+      "engine": "echarts",
+      "sourceFile": "widgets/monthly-trips.echarts.json"
+    },
+    {
+      "id": "monthly-revenue",
+      "datasetId": "q1_monthly_kpis",
+      "title": "Q1 2026 billed passenger spend by month",
+      "description": "Billed passenger spend is SUM(total_amount) in recorded USD by Q1 2026 month, including zeros and negatives, not inflation-adjusted.",
+      "height": 400,
+      "accessibilityText": "Bar chart of billed passenger spend (USD, SUM of total_amount) in Q1 2026: January $108.69 million, February $102.38 million, March $118.96 million. Daily spend still rose $3.51M to $3.66M to $3.84M after calendar normalisation. Includes 90,080 non-positive totals (0.81%). Not inflation-adjusted.",
+      "engine": "echarts",
+      "sourceFile": "widgets/monthly-revenue.echarts.json"
+    },
+    {
+      "id": "demand-heatmap",
+      "datasetId": "q1_hour_dow",
+      "title": "Q1 2026 pickups by weekday and hour",
+      "description": "Pickup trip counts for Q1 2026 as a weekday-by-hour grid. Hours are 0–23; weekdays follow ISO order Monday through Sunday.",
+      "height": 460,
+      "accessibilityText": "Heatmap of all 11,077,206 Q1 2026 yellow taxi pickups by weekday (Monday–Sunday, top to bottom) and hour (0–23). Peaks: Thursday 18:00 (133,182 trips), Friday 18:00 (132,043), Thursday 17:00 (122,154). Quietest: Tuesday 03:00 (3,650). Weekend midnight is stronger than weekdays (Sunday 00:00 = 99,662).",
+      "engine": "echarts",
+      "sourceFile": "widgets/demand-heatmap.echarts.json"
+    },
+    {
+      "id": "borough-ranking",
+      "datasetId": "q1_borough",
+      "title": "Q1 2026 trip count by pickup borough",
+      "description": "All Q1 2026 pickup boroughs ranked by trip count. Tooltips show share of all Q1 trips, billed passenger spend (USD), and average positive total.",
+      "height": 420,
+      "accessibilityText": "Horizontal bars of Q1 2026 yellow taxi trips by pickup borough. Manhattan 9.48 million trips (85.60%) and $245.58 million billed spend, lowest typical positive total ($26.23). Queens 998,379 trips (9.01%) and $62.34 million at $65.03 average. Brooklyn 465,247 (4.20%). Remaining boroughs each about 1% or less.",
+      "engine": "echarts",
+      "sourceFile": "widgets/borough-ranking.echarts.json"
+    },
+    {
+      "id": "zone-ranking",
+      "datasetId": "q1_top_zones",
+      "title": "Top 12 Q1 2026 pickup zones by trip count",
+      "description": "The 12 busiest pickup zones by Q1 2026 trips. Zone share is of all 11,077,206 Q1 trips, not the top-12 subtotal.",
+      "height": 420,
+      "accessibilityText": "Horizontal bars of the 12 busiest Q1 2026 pickup zones by trip count. Leaders: Upper East Side South 479,826 (4.33%), Upper East Side North 449,683 (4.06%), Midtown Center 447,264 (4.04%), JFK Airport 431,039 (3.89%)—only non-Manhattan zone in the top 12, $79.69 average billed total. The 12 zones are 38.4% of all Q1 trips.",
+      "engine": "echarts",
+      "sourceFile": "widgets/zone-ranking.echarts.json"
+    }
+  ]
+}

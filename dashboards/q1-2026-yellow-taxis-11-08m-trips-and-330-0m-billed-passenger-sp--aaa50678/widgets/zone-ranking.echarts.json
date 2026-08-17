@@ -1,0 +1,49 @@
+{
+  "grid": {
+    "top": 16,
+    "left": 8,
+    "right": 20,
+    "bottom": 28,
+    "containLabel": true
+  },
+  "color": [
+    "#6d8bff"
+  ],
+  "xAxis": {
+    "name": "Trip count (trips)",
+    "type": "value",
+    "nameGap": 28,
+    "nameLocation": "middle"
+  },
+  "yAxis": {
+    "name": "Pickup zone",
+    "type": "category",
+    "inverse": true,
+    "nameGap": 96,
+    "nameLocation": "middle"
+  },
+  "series": [
+    {
+      "name": "Trips",
+      "type": "bar",
+      "encode": {
+        "x": "trips",
+        "y": "pu_zone",
+        "tooltip": [
+          "pu_borough",
+          "trips",
+          "share_trips_pct",
+          "avg_total_usd",
+          "revenue_usd"
+        ]
+      },
+      "barMaxWidth": 18
+    }
+  ],
+  "tooltip": {
+    "trigger": "axis",
+    "axisPointer": {
+      "type": "shadow"
+    }
+  }
+}

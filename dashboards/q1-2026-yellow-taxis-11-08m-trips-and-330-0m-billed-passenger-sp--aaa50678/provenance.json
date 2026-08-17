@@ -1,0 +1,18 @@
+{
+  "schemaVersion": 1,
+  "revisionId": "7ceb6934-53da-4d08-87d1-313429b69334",
+  "revisionNumber": 1,
+  "parentRevisionId": null,
+  "restoredFromRevisionId": null,
+  "sourceKind": "agent",
+  "note": "Summarize the Q1 performance of the yellow taxi in NYC",
+  "model": "deterministic-demo",
+  "runId": "cb6bc7a3-8114-4b8d-82bf-c8768c27aa9d",
+  "generatedAt": "2026-08-17T14:33:19.396Z",
+  "publicationCommit": "$GIT_COMMIT",
+  "sourceSnapshot": {
+    "id": "453131e6-b16b-4b23-bba8-e9b5883b3513",
+    "objectPrefix": "warehouse:catalog@453131e6-b16b-4b23-bba8-e9b5883b3513",
+    "snapshotDate": "2026-01-01"
+  }
+}

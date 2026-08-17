@@ -1,0 +1,46 @@
+{
+  "grid": {
+    "top": 36,
+    "left": 12,
+    "right": 16,
+    "bottom": 28,
+    "containLabel": true
+  },
+  "color": [
+    "#5b8ff9"
+  ],
+  "xAxis": {
+    "name": "Month",
+    "type": "category",
+    "nameGap": 28,
+    "nameLocation": "middle"
+  },
+  "yAxis": {
+    "name": "Trip count (trips)",
+    "type": "value",
+    "nameGap": 52,
+    "nameLocation": "middle"
+  },
+  "series": [
+    {
+      "name": "Trips",
+      "type": "bar",
+      "encode": {
+        "x": "month_name",
+        "y": "trips",
+        "tooltip": [
+          "trips",
+          "avg_total_usd",
+          "avg_distance_miles"
+        ]
+      },
+      "barMaxWidth": 48
+    }
+  ],
+  "tooltip": {
+    "trigger": "axis",
+    "axisPointer": {
+      "type": "shadow"
+    }
+  }
+}

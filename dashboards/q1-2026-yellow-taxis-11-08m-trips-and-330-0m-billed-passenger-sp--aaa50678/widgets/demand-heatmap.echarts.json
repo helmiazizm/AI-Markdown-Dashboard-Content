@@ -1,0 +1,61 @@
+{
+  "grid": {
+    "top": 20,
+    "left": 8,
+    "right": 20,
+    "bottom": 64,
+    "containLabel": true
+  },
+  "xAxis": {
+    "name": "Pickup hour (0–23)",
+    "type": "category",
+    "nameGap": 28,
+    "nameLocation": "middle"
+  },
+  "yAxis": {
+    "name": "Pickup weekday",
+    "type": "category",
+    "inverse": true,
+    "nameGap": 72,
+    "nameLocation": "middle"
+  },
+  "series": [
+    {
+      "name": "Trips",
+      "type": "heatmap",
+      "encode": {
+        "x": "pickup_hour",
+        "y": "pickup_day_name",
+        "value": "trips",
+        "tooltip": [
+          "pickup_day_name",
+          "pickup_hour",
+          "trips"
+        ]
+      }
+    }
+  ],
+  "tooltip": {
+    "trigger": "item"
+  },
+  "visualMap": {
+    "min": 0,
+    "left": "center",
+    "text": [
+      "More trips",
+      "Fewer trips"
+    ],
+    "type": "continuous",
+    "bottom": 4,
+    "orient": "horizontal",
+    "inRange": {
+      "color": [
+        "#1b2838",
+        "#2a6f97",
+        "#f2c14e"
+      ]
+    },
+    "itemWidth": 10,
+    "itemHeight": 200
+  }
+}
