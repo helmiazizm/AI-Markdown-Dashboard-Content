@@ -1,0 +1,48 @@
+{
+  "grid": {
+    "top": 16,
+    "left": 8,
+    "right": 28,
+    "bottom": 8,
+    "containLabel": true
+  },
+  "xAxis": {
+    "name": "Average passenger total (USD per trip)",
+    "type": "value",
+    "nameGap": 28,
+    "nameLocation": "middle"
+  },
+  "yAxis": {
+    "name": "Pickup zone",
+    "type": "category",
+    "inverse": true,
+    "nameGap": 96,
+    "axisLabel": {
+      "interval": 0
+    },
+    "nameLocation": "middle"
+  },
+  "series": [
+    {
+      "type": "bar",
+      "encode": {
+        "x": "avg_total_usd",
+        "y": "pu_zone",
+        "tooltip": [
+          "pu_zone",
+          "pu_borough",
+          "avg_total_usd",
+          "trips",
+          "avg_revenue_per_hour_usd",
+          "share_trips_pct",
+          "avg_trip_miles",
+          "avg_duration_min"
+        ]
+      },
+      "barMaxWidth": 16
+    }
+  ],
+  "tooltip": {
+    "trigger": "item"
+  }
+}

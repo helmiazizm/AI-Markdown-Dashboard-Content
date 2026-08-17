@@ -1,0 +1,43 @@
+{
+  "grid": {
+    "top": 20,
+    "left": 12,
+    "right": 24,
+    "bottom": 12,
+    "containLabel": true
+  },
+  "xAxis": {
+    "name": "Qualifying trips (count, log scale)",
+    "type": "log",
+    "nameGap": 30,
+    "nameLocation": "middle"
+  },
+  "yAxis": {
+    "name": "Average passenger total (USD per trip)",
+    "type": "value",
+    "nameGap": 42,
+    "nameLocation": "middle"
+  },
+  "series": [
+    {
+      "type": "scatter",
+      "encode": {
+        "x": "trips",
+        "y": "avg_total_usd",
+        "tooltip": [
+          "pu_zone",
+          "pu_borough",
+          "trips",
+          "avg_total_usd",
+          "avg_revenue_per_hour_usd",
+          "avg_trip_miles",
+          "share_trips_pct"
+        ]
+      },
+      "symbolSize": 10
+    }
+  ],
+  "tooltip": {
+    "trigger": "item"
+  }
+}

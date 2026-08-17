@@ -1,0 +1,41 @@
+{
+  "grid": {
+    "top": 20,
+    "left": 10,
+    "right": 16,
+    "bottom": 8,
+    "containLabel": true
+  },
+  "xAxis": {
+    "name": "Pickup hour (local clock, 0-23)",
+    "type": "category",
+    "nameGap": 28,
+    "nameLocation": "middle"
+  },
+  "yAxis": {
+    "name": "Average passenger total (USD per trip)",
+    "type": "value",
+    "nameGap": 40,
+    "nameLocation": "middle"
+  },
+  "series": [
+    {
+      "type": "line",
+      "encode": {
+        "x": "pickup_hour",
+        "y": "avg_total_usd",
+        "tooltip": [
+          "pickup_hour",
+          "avg_total_usd",
+          "trips",
+          "avg_duration_min"
+        ]
+      },
+      "showSymbol": true,
+      "symbolSize": 6
+    }
+  ],
+  "tooltip": {
+    "trigger": "axis"
+  }
+}

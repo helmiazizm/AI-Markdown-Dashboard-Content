@@ -1,0 +1,61 @@
+{
+  "grid": {
+    "top": 16,
+    "left": 8,
+    "right": 16,
+    "bottom": 48,
+    "containLabel": true
+  },
+  "xAxis": {
+    "name": "Pickup hour (local clock, 0-23)",
+    "type": "category",
+    "nameGap": 28,
+    "nameLocation": "middle"
+  },
+  "yAxis": {
+    "name": "Pickup zone",
+    "type": "category",
+    "inverse": true,
+    "nameGap": 96,
+    "axisLabel": {
+      "interval": 0
+    },
+    "nameLocation": "middle"
+  },
+  "series": [
+    {
+      "type": "heatmap",
+      "encode": {
+        "x": "pickup_hour",
+        "y": "pu_zone",
+        "value": "avg_total_usd",
+        "tooltip": [
+          "pu_zone",
+          "pickup_hour",
+          "avg_total_usd",
+          "trips"
+        ]
+      }
+    }
+  ],
+  "tooltip": {
+    "trigger": "item"
+  },
+  "visualMap": {
+    "min": 0,
+    "left": "center",
+    "text": [
+      "Higher USD/trip",
+      "Lower"
+    ],
+    "bottom": 0,
+    "orient": "horizontal",
+    "inRange": {
+      "color": [
+        "#777166",
+        "#8f6c2c",
+        "#f5a300"
+      ]
+    }
+  }
+}

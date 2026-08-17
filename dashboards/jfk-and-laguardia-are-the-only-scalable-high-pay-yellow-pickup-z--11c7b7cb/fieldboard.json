@@ -1,0 +1,117 @@
+{
+  "schemaVersion": 1,
+  "dashboardId": "11c7b7cb-08d3-46e0-ad9d-4c0100638c6b",
+  "title": "JFK and LaGuardia are the only scalable high-pay yellow pickup zones in Q1 2026",
+  "summary": "In Q1 2026 (January–March), JFK Airport ($79.66 average passenger total) and LaGuardia Airport ($69.86) are the only high-value origins with real scale — 663k combined pickups versus a $30.33 citywide mean. Stage drivers there and in adjacent East Elmhurst / South Ozone Park in the afternoon–evening. Do not chase Newark Airport or Outside-of-NYC averages (duration artifacts), and do not leave Manhattan volume for Far Rockaway–style long, low occupied-hour trips.",
+  "datasets": [
+    {
+      "id": "zone_economics",
+      "question": "Which pickup zones deliver the highest average passenger total per trip, and do they also have enough volume and occupied-hour earnings to justify repositioning?",
+      "sqlFile": "queries/zone_economics.sql",
+      "expectedColumns": [
+        "pu_zone",
+        "pu_borough",
+        "trips",
+        "avg_total_usd",
+        "avg_revenue_per_hour_usd",
+        "avg_trip_miles",
+        "avg_duration_min",
+        "share_trips_pct"
+      ],
+      "maxRows": 500
+    },
+    {
+      "id": "zone_rank",
+      "question": "What are the twelve volume-qualified pickup zones with the highest average passenger total per trip?",
+      "sqlFile": "queries/zone_rank.sql",
+      "expectedColumns": [
+        "pu_zone",
+        "pu_borough",
+        "trips",
+        "avg_total_usd",
+        "avg_revenue_per_hour_usd",
+        "avg_trip_miles",
+        "avg_duration_min",
+        "share_trips_pct"
+      ],
+      "maxRows": 12
+    },
+    {
+      "id": "hour_economics",
+      "question": "How do per-trip totals, occupied-hour earnings, and trip volume vary by pickup hour citywide?",
+      "sqlFile": "queries/hour_economics.sql",
+      "expectedColumns": [
+        "pickup_hour",
+        "trips",
+        "avg_total_usd",
+        "avg_revenue_per_hour_usd",
+        "avg_duration_min"
+      ],
+      "maxRows": 24
+    },
+    {
+      "id": "zone_hour_grid",
+      "question": "At which hours do the highest per-trip-value pickup zones actually pay, so drivers are not sent to the right zone at the wrong time?",
+      "sqlFile": "queries/zone_hour_grid.sql",
+      "expectedColumns": [
+        "pu_zone",
+        "pickup_hour",
+        "trips",
+        "avg_total_usd"
+      ],
+      "maxRows": 500
+    }
+  ],
+  "widgets": [
+    {
+      "id": "zone_total_rank",
+      "datasetId": "zone_rank",
+      "title": "Highest average passenger total by pickup zone",
+      "description": "Twelve volume-qualified Q1 2026 origins ranked by average passenger total (USD per trip). Newark Airport and Outside of NYC lead the axis but are not dispatch targets.",
+      "height": 480,
+      "accessibilityText": "Horizontal bars of the 12 volume-qualified Q1 2026 yellow pickup zones with the highest average passenger total (USD per trip). Outside of NYC ($106.40) and Newark Airport ($104.59) lead but are not local dispatch markets. JFK Airport ($79.66, 412,635 trips) and LaGuardia Airport ($69.86, 250,345) are the first real repositioning targets, then East Elmhurst ($64.56).",
+      "engine": "echarts",
+      "sourceFile": "widgets/zone_total_rank.echarts.json"
+    },
+    {
+      "id": "zone_volume_value",
+      "datasetId": "zone_economics",
+      "title": "Volume versus average passenger total by zone",
+      "description": "Each volume-qualified zone is a point: qualifying trips versus average passenger total (USD per trip). Occupied-hour earnings are in the tooltip only.",
+      "height": 420,
+      "accessibilityText": "Scatter of 209 volume-qualified pickup zones: qualifying trip count on a log x-axis versus average passenger total in USD per trip on the y-axis. JFK and LaGuardia sit upper-right (high value, high volume). Newark Airport and Outside of NYC sit upper-left. Far Rockaway is mid-value with weak occupied-hour earnings in the tooltip.",
+      "engine": "echarts",
+      "sourceFile": "widgets/zone_volume_value.echarts.json"
+    },
+    {
+      "id": "hour_total_line",
+      "datasetId": "hour_economics",
+      "title": "Citywide average passenger total by pickup hour",
+      "description": "Citywide average passenger total (USD per trip) by pickup hour. The peak is pre-rush, not the 18:00 volume peak.",
+      "height": 380,
+      "accessibilityText": "Citywide average passenger total (USD per trip) by pickup hour 0 through 23 in Q1 2026. Highest at 05:00 ($36.32) and 04:00 ($35.01); lowest at 10:00 ($28.19), 7% below the $30.33 citywide mean. Evening hours near $30-$32 carry the most trips (peak 786,766 at 18:00) but not the highest per-trip total.",
+      "engine": "echarts",
+      "sourceFile": "widgets/hour_total_line.echarts.json"
+    },
+    {
+      "id": "hour_rate_line",
+      "datasetId": "hour_economics",
+      "title": "Citywide occupied-hour earnings by pickup hour",
+      "description": "Citywide occupied-hour earnings (USD per occupied hour) by pickup hour. Overnight is strongest; mid-afternoon is weakest.",
+      "height": 380,
+      "accessibilityText": "Citywide occupied-hour earnings (USD per occupied hour) by pickup hour 0 through 23 in Q1 2026. Peak overnight: $133.47 at 04:00 and $129.38 at 03:00. Evening 21:00-23:00 holds $118-$121. Mid-afternoon is weakest at $90.50 at 15:00, when trips last 20.3 minutes. Occupied minutes only; no wait or deadhead.",
+      "engine": "echarts",
+      "sourceFile": "widgets/hour_rate_line.echarts.json"
+    },
+    {
+      "id": "zone_hour_heat",
+      "datasetId": "zone_hour_grid",
+      "title": "Average passenger total for top-value zones by pickup hour",
+      "description": "Average passenger total (USD per trip) for the twelve highest-paying volume-qualified zones at each pickup hour. Stage only bright, high-trip cells.",
+      "height": 500,
+      "accessibilityText": "Heatmap of average passenger total (USD per trip) for the 12 highest-paying volume-qualified zones by pickup hour 0-23, ordered top to bottom by Q1-wide average. JFK is brightest at 16:00 ($89.89 on 30,719 trips) and 17:00 ($88.42). LaGuardia pays most at 07:00-08:00 ($76-$77). Newark Airport and Outside of NYC stay high every hour but are not local markets.",
+      "engine": "echarts",
+      "sourceFile": "widgets/zone_hour_heat.echarts.json"
+    }
+  ]
+}

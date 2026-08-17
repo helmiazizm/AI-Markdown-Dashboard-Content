@@ -1,0 +1,18 @@
+{
+  "schemaVersion": 1,
+  "revisionId": "b181bd8c-cdd6-45ed-a63c-72847b838bb3",
+  "revisionNumber": 1,
+  "parentRevisionId": null,
+  "restoredFromRevisionId": null,
+  "sourceKind": "agent",
+  "note": "Which NYC yellow taxi pickup zones and times of day are most profitable per trip in Q1 2026, and where should we reposition drivers?",
+  "model": "deterministic-demo",
+  "runId": "6fa5df75-e12b-4b48-b7f1-77ab620a30b7",
+  "generatedAt": "2026-08-17T14:47:52.505Z",
+  "publicationCommit": "$GIT_COMMIT",
+  "sourceSnapshot": {
+    "id": "453131e6-b16b-4b23-bba8-e9b5883b3513",
+    "objectPrefix": "warehouse:catalog@453131e6-b16b-4b23-bba8-e9b5883b3513",
+    "snapshotDate": "2026-01-01"
+  }
+}
