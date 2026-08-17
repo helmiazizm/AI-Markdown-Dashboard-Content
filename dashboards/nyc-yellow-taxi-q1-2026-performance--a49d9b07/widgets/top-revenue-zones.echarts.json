@@ -1,0 +1,43 @@
+{
+  "grid": {
+    "top": 16,
+    "left": 8,
+    "right": 28,
+    "bottom": 8,
+    "containLabel": true
+  },
+  "xAxis": {
+    "name": "Total fares collected (million USD)",
+    "type": "value",
+    "nameGap": 30,
+    "nameLocation": "middle"
+  },
+  "yAxis": {
+    "type": "category",
+    "axisTick": {
+      "show": false
+    }
+  },
+  "series": [
+    {
+      "type": "bar",
+      "encode": {
+        "x": "revenue_musd",
+        "y": "pickup_zone",
+        "tooltip": [
+          "pickup_zone",
+          "revenue_musd",
+          "trips",
+          "avg_total_usd"
+        ]
+      },
+      "barMaxWidth": 22
+    }
+  ],
+  "tooltip": {
+    "trigger": "axis",
+    "axisPointer": {
+      "type": "shadow"
+    }
+  }
+}

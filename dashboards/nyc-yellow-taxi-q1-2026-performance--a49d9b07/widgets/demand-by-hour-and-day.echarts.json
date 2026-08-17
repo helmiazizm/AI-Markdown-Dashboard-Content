@@ -1,0 +1,56 @@
+{
+  "grid": {
+    "top": 16,
+    "left": 8,
+    "right": 20,
+    "bottom": 56,
+    "containLabel": true
+  },
+  "xAxis": {
+    "name": "Pickup hour (0-23, local)",
+    "type": "category",
+    "nameGap": 30,
+    "splitArea": {
+      "show": true
+    },
+    "nameLocation": "middle"
+  },
+  "yAxis": {
+    "type": "category",
+    "splitArea": {
+      "show": true
+    }
+  },
+  "series": [
+    {
+      "type": "heatmap",
+      "encode": {
+        "x": "pickup_hour",
+        "y": "day_name",
+        "value": "avg_trips",
+        "tooltip": [
+          "day_name",
+          "pickup_hour",
+          "avg_trips"
+        ]
+      }
+    }
+  ],
+  "tooltip": {
+    "trigger": "item"
+  },
+  "visualMap": {
+    "max": 10500,
+    "min": 0,
+    "left": "center",
+    "text": [
+      "More trips per hour",
+      "Fewer"
+    ],
+    "type": "continuous",
+    "bottom": 0,
+    "orient": "horizontal",
+    "dimension": "avg_trips",
+    "calculable": true
+  }
+}

@@ -1,0 +1,97 @@
+{
+  "schemaVersion": 1,
+  "dashboardId": "a49d9b07-30c3-4ba7-960e-de035b0be89d",
+  "title": "NYC Yellow Taxi Q1 2026 Performance",
+  "summary": "Yellow taxis recorded 11.08 million trips and $330.0M in fares across Q1 2026. Volume grew steadily on a per-day basis, two single-day disruptions cut demand by up to 79%, and the two Queens airport zones supplied 15% of all revenue from 6% of trips.",
+  "datasets": [
+    {
+      "id": "daily-trip-volume",
+      "question": "How did daily yellow taxi trip volume and average fare move across Q1 2026?",
+      "sqlFile": "queries/daily-trip-volume.sql",
+      "expectedColumns": [
+        "pickup_date",
+        "trips",
+        "avg_total_usd"
+      ],
+      "maxRows": 100
+    },
+    {
+      "id": "demand-by-hour-and-day",
+      "question": "When during the week does yellow taxi demand peak by pickup hour and weekday?",
+      "sqlFile": "queries/demand-by-hour-and-day.sql",
+      "expectedColumns": [
+        "day_name",
+        "pickup_hour",
+        "avg_trips"
+      ],
+      "maxRows": 200
+    },
+    {
+      "id": "top-revenue-zones",
+      "question": "Which pickup zones produced the most yellow taxi revenue in Q1 2026?",
+      "sqlFile": "queries/top-revenue-zones.sql",
+      "expectedColumns": [
+        "pickup_zone",
+        "revenue_musd",
+        "trips",
+        "avg_total_usd"
+      ],
+      "maxRows": 15
+    },
+    {
+      "id": "borough-fare-premium",
+      "question": "How does average revenue per trip compare across pickup boroughs?",
+      "sqlFile": "queries/borough-fare-premium.sql",
+      "expectedColumns": [
+        "borough",
+        "avg_total_usd",
+        "trips",
+        "trip_share_pct",
+        "revenue_musd"
+      ],
+      "maxRows": 10
+    }
+  ],
+  "widgets": [
+    {
+      "id": "daily-trip-volume",
+      "datasetId": "daily-trip-volume",
+      "title": "Daily trips and average fare, Q1 2026",
+      "description": "Trips per pickup day on the left axis against the average total charged per trip on the right axis. The weekly cycle dominates the trip line; the two deep troughs in late January and late February are single-day demand collapses.",
+      "height": 420,
+      "accessibilityText": "A dual-axis line chart over the 90 days of Q1 2026. The solid line shows daily trip counts, which cycle weekly between roughly 90,000 and 160,000 and trend upward into March. Three days fall far below that band: 26 January at 69,172 trips, 25 January at 44,858, and 23 February at 26,039, the lowest day of the quarter. The dashed line shows the average fare per trip, which stays within roughly 28 to 32 US dollars all quarter and does not collapse on the low-volume days.",
+      "engine": "echarts",
+      "sourceFile": "widgets/daily-trip-volume.echarts.json"
+    },
+    {
+      "id": "demand-by-hour-and-day",
+      "datasetId": "demand-by-hour-and-day",
+      "title": "Average trips per hour by weekday and pickup hour",
+      "description": "Average trips in each weekday-and-hour slot, normalised by how many times that weekday occurred in Q1 so short weekdays are not understated. Use it to place shift coverage against demand rather than against total volume.",
+      "height": 460,
+      "accessibilityText": "A heatmap with pickup hour 0 to 23 across the horizontal axis and the seven weekdays down the vertical axis, shaded by average trips in that hour. The hottest cells are 18:00 on Thursday and Friday at roughly 10,200 trips, within a broad warm block from 15:00 to 21:00 every day. The coldest are 03:00 to 04:00 on Tuesday and Wednesday at under 350 trips, a thirty-fold daily swing. Weekend late nights stay warm past midnight; weekday nights do not.",
+      "engine": "echarts",
+      "sourceFile": "widgets/demand-by-hour-and-day.echarts.json"
+    },
+    {
+      "id": "top-revenue-zones",
+      "datasetId": "top-revenue-zones",
+      "title": "Top 15 pickup zones by fares collected",
+      "description": "Total fares collected per pickup zone in Q1 2026, highest at the top. Tooltips add trip counts and average fare so high-volume Manhattan zones can be separated from high-value airport zones.",
+      "height": 520,
+      "accessibilityText": "A horizontal bar chart of the fifteen highest-earning pickup zones in Q1 2026. JFK Airport leads with 32.34 million US dollars, nearly double LaGuardia Airport at 17.49 million and triple Midtown Center at 12.12 million. The other twelve bars are Manhattan zones between 6.7 and 10.5 million. JFK leads on only 431,039 trips while Upper East Side South earns 10.42 million on 479,826 trips, because JFK averages 75.03 dollars per trip against 21.72 there.",
+      "engine": "echarts",
+      "sourceFile": "widgets/top-revenue-zones.echarts.json"
+    },
+    {
+      "id": "borough-fare-premium",
+      "datasetId": "borough-fare-premium",
+      "title": "Average fare per trip by pickup borough",
+      "description": "Average total charged per trip for each pickup borough, cheapest at the bottom. Tooltips carry trip counts, share of quarterly trips, and total fares so volume and value can be read together.",
+      "height": 380,
+      "accessibilityText": "A horizontal bar chart comparing average fare per trip across six pickup boroughs. Newark Airport is highest at 102.26 dollars but on only 1,420 trips. Queens follows at 62.44 dollars on 998,379 trips, then Staten Island at 49.40, the Bronx at 37.07, and Brooklyn at 36.34. Manhattan is lowest at 25.90 dollars despite carrying 85.7 percent of all quarterly trips, so the borough with the most trips earns the least per trip.",
+      "engine": "echarts",
+      "sourceFile": "widgets/borough-fare-premium.echarts.json"
+    }
+  ]
+}

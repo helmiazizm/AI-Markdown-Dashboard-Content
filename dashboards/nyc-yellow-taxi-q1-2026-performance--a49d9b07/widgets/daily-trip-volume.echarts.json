@@ -1,0 +1,81 @@
+{
+  "grid": {
+    "top": 44,
+    "left": 8,
+    "right": 12,
+    "bottom": 8,
+    "containLabel": true
+  },
+  "xAxis": {
+    "name": "Pickup date",
+    "type": "category",
+    "nameGap": 32,
+    "axisTick": {
+      "alignWithLabel": true
+    },
+    "axisLabel": {
+      "hideOverlap": true
+    },
+    "nameLocation": "middle"
+  },
+  "yAxis": [
+    {
+      "min": 0,
+      "name": "Trips per day",
+      "type": "value"
+    },
+    {
+      "name": "Avg fare (USD)",
+      "type": "value",
+      "scale": true,
+      "splitLine": {
+        "show": false
+      }
+    }
+  ],
+  "legend": {
+    "top": 8
+  },
+  "series": [
+    {
+      "name": "Trips per day",
+      "type": "line",
+      "encode": {
+        "x": "pickup_date",
+        "y": "trips",
+        "tooltip": [
+          "pickup_date",
+          "trips"
+        ]
+      },
+      "lineStyle": {
+        "width": 2
+      },
+      "showSymbol": false,
+      "yAxisIndex": 0
+    },
+    {
+      "name": "Avg fare (USD)",
+      "type": "line",
+      "encode": {
+        "x": "pickup_date",
+        "y": "avg_total_usd",
+        "tooltip": [
+          "avg_total_usd"
+        ]
+      },
+      "lineStyle": {
+        "type": "dashed",
+        "width": 1.5
+      },
+      "showSymbol": false,
+      "yAxisIndex": 1
+    }
+  ],
+  "tooltip": {
+    "trigger": "axis",
+    "axisPointer": {
+      "type": "line"
+    }
+  }
+}

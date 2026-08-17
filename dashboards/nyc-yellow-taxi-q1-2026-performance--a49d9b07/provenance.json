@@ -1,0 +1,18 @@
+{
+  "schemaVersion": 1,
+  "revisionId": "b6a4288e-78cc-4b05-b301-98a9add98d6c",
+  "revisionNumber": 1,
+  "parentRevisionId": null,
+  "restoredFromRevisionId": null,
+  "sourceKind": "manual",
+  "note": "Add Q1 2026 NYC yellow taxi performance summary: daily volume, hour-of-week demand, top revenue zones, borough fare premium",
+  "model": "external-editor",
+  "runId": null,
+  "generatedAt": "2026-08-17T13:16:42.376Z",
+  "publicationCommit": "$GIT_COMMIT",
+  "sourceSnapshot": {
+    "id": "453131e6-b16b-4b23-bba8-e9b5883b3513",
+    "objectPrefix": "warehouse:catalog@453131e6-b16b-4b23-bba8-e9b5883b3513",
+    "snapshotDate": "2026-01-01"
+  }
+}
