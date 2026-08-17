@@ -1,0 +1,77 @@
+{
+  "schemaVersion": 1,
+  "dashboardId": "033372c4-2b62-469f-bb84-df41ad0f4051",
+  "title": "Fashion Catalog: Category Volume, Gender Mix, and Colour Concentration",
+  "summary": "The 44,424-row fashion catalog has 44,424 distinct product_ids. Apparel leads master categories at 48.2%, Men and Women make up 91.8% of the gender mix, and Black alone is 21.9% of rows; the top 15 base colours cover 90.3% of catalog rows.",
+  "datasets": [
+    {
+      "id": "ds_master_category",
+      "question": "Master category volume and distinct product breadth in fashion catalog products",
+      "sqlFile": "queries/ds_master_category.sql",
+      "expectedColumns": [
+        "master_category",
+        "catalog_rows",
+        "distinct_products",
+        "pct_of_catalog"
+      ],
+      "maxRows": 20
+    },
+    {
+      "id": "ds_gender_mix",
+      "question": "Gender mix of catalog rows in fashion catalog products",
+      "sqlFile": "queries/ds_gender_mix.sql",
+      "expectedColumns": [
+        "gender",
+        "catalog_rows",
+        "distinct_products",
+        "pct_of_catalog"
+      ],
+      "maxRows": 20
+    },
+    {
+      "id": "ds_base_colour_top",
+      "question": "Top base colours by catalog rows with cumulative share in fashion catalog products",
+      "sqlFile": "queries/ds_base_colour_top.sql",
+      "expectedColumns": [
+        "base_colour",
+        "catalog_rows",
+        "distinct_products",
+        "pct_of_catalog",
+        "cumulative_pct"
+      ],
+      "maxRows": 20
+    }
+  ],
+  "widgets": [
+    {
+      "id": "w_master_category",
+      "datasetId": "ds_master_category",
+      "title": "Master category volume",
+      "description": "Catalog rows and distinct product counts by master category, sorted by volume. Distinct product counts match catalog rows because product_id is unique per row at this grain.",
+      "height": 420,
+      "accessibilityText": "Bar and line chart showing Apparel as the largest master category with 21,397 catalog rows, followed by Accessories at 11,274 and Footwear at 9,219. Distinct product counts match catalog rows in every category.",
+      "engine": "echarts",
+      "sourceFile": "widgets/w_master_category.echarts.json"
+    },
+    {
+      "id": "w_gender_mix",
+      "datasetId": "ds_gender_mix",
+      "title": "Gender mix",
+      "description": "Share of catalog rows by gender, with catalog row count as the encoded value.",
+      "height": 420,
+      "accessibilityText": "Donut chart showing Men at 49.9%, Women at 41.9%, Unisex at 4.9%, Boys at 1.9%, and Girls at 1.5% of catalog rows.",
+      "engine": "echarts",
+      "sourceFile": "widgets/w_gender_mix.echarts.json"
+    },
+    {
+      "id": "w_base_colour_concentration",
+      "datasetId": "ds_base_colour_top",
+      "title": "Base colour concentration",
+      "description": "Top 15 base colours by catalog rows, with a cumulative share line showing concentration.",
+      "height": 460,
+      "accessibilityText": "Bar chart showing Black as the most common base colour at 9,728 rows, then White at 5,538 and Blue at 4,918. A cumulative line shows the top 15 colours cover 90.3% of catalog rows.",
+      "engine": "echarts",
+      "sourceFile": "widgets/w_base_colour_concentration.echarts.json"
+    }
+  ]
+}

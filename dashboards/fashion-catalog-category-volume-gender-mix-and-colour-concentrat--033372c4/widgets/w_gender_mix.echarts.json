@@ -1,0 +1,37 @@
+{
+  "legend": {
+    "top": "4%",
+    "left": "center"
+  },
+  "series": [
+    {
+      "name": "Gender mix",
+      "type": "pie",
+      "label": {
+        "show": true,
+        "formatter": "{b}: {d}%"
+      },
+      "center": [
+        "50%",
+        "56%"
+      ],
+      "encode": {
+        "value": "catalog_rows",
+        "itemName": "gender"
+      },
+      "radius": [
+        "42%",
+        "70%"
+      ],
+      "itemStyle": {
+        "borderColor": "#fff",
+        "borderWidth": 2,
+        "borderRadius": 6
+      },
+      "avoidLabelOverlap": true
+    }
+  ],
+  "tooltip": {
+    "trigger": "item"
+  }
+}

@@ -1,0 +1,52 @@
+{
+  "grid": {
+    "left": "3%",
+    "right": "4%",
+    "bottom": "3%",
+    "containLabel": true
+  },
+  "xAxis": {
+    "type": "category"
+  },
+  "yAxis": {
+    "name": "Products",
+    "type": "value"
+  },
+  "legend": {
+    "top": 0
+  },
+  "series": [
+    {
+      "name": "catalog_rows",
+      "type": "bar",
+      "encode": {
+        "x": "master_category",
+        "y": "catalog_rows"
+      },
+      "itemStyle": {
+        "borderRadius": [
+          4,
+          4,
+          0,
+          0
+        ]
+      },
+      "barMaxWidth": 40
+    },
+    {
+      "name": "distinct_products",
+      "type": "line",
+      "encode": {
+        "x": "master_category",
+        "y": "distinct_products"
+      },
+      "symbolSize": 8
+    }
+  ],
+  "tooltip": {
+    "trigger": "axis",
+    "axisPointer": {
+      "type": "shadow"
+    }
+  }
+}

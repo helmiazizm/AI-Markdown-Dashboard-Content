@@ -1,0 +1,18 @@
+{
+  "schemaVersion": 1,
+  "revisionId": "b70a77b0-08e7-4bf2-843f-b7629ee12a21",
+  "revisionNumber": 1,
+  "parentRevisionId": null,
+  "restoredFromRevisionId": null,
+  "sourceKind": "agent",
+  "note": "Analyze fashion.catalog.products covering master_category volume, gender mix, and base_colour concentration. Use COUNT(*) for catalog rows and COUNT(DISTINCT product_id) when measuring product breadth. DuckDB SQL against fashion.catalog.products only.",
+  "model": "deepseek/deepseek-v4-pro-0813",
+  "runId": "286b4b31-0ede-4fec-badb-cd5ecbcec517",
+  "generatedAt": "2026-08-17T12:26:08.702Z",
+  "publicationCommit": "$GIT_COMMIT",
+  "sourceSnapshot": {
+    "id": "453131e6-b16b-4b23-bba8-e9b5883b3513",
+    "objectPrefix": "warehouse:catalog@453131e6-b16b-4b23-bba8-e9b5883b3513",
+    "snapshotDate": "2026-01-01"
+  }
+}

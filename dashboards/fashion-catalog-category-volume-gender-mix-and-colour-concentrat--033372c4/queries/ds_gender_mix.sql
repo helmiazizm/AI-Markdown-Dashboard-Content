@@ -1,0 +1,1 @@
+SELECT gender, COUNT(*) AS catalog_rows, COUNT(DISTINCT product_id) AS distinct_products, ROUND(100.0 * COUNT(*) / SUM(COUNT(*)) OVER (), 2) AS pct_of_catalog FROM fashion.catalog.products GROUP BY gender ORDER BY catalog_rows DESC
