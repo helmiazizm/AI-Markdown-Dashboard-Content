@@ -1,0 +1,1 @@
+SELECT pu_zone, pu_borough, COUNT(*) AS trip_count, AVG(fare_amount) AS avg_fare_amount, MEDIAN(total_amount) AS median_total_amount, SUM(total_amount) AS total_revenue FROM tlc.taxi.yellow_trips WHERE data_month >= DATE '2026-01-01' AND data_month < DATE '2026-04-01' GROUP BY pu_zone, pu_borough ORDER BY trip_count DESC LIMIT 10

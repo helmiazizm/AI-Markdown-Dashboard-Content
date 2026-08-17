@@ -1,0 +1,29 @@
+{
+  "grid": {
+    "top": 12,
+    "left": 180,
+    "right": 60,
+    "bottom": 40
+  },
+  "xAxis": {
+    "name": "Trips",
+    "type": "value"
+  },
+  "yAxis": {
+    "type": "category",
+    "inverse": true
+  },
+  "series": [
+    {
+      "type": "bar",
+      "encode": {
+        "x": "trip_count",
+        "y": "pu_zone"
+      },
+      "barMaxWidth": 22
+    }
+  ],
+  "tooltip": {
+    "trigger": "axis"
+  }
+}

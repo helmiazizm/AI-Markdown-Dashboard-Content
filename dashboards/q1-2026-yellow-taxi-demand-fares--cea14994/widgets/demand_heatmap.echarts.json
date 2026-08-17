@@ -1,0 +1,40 @@
+{
+  "grid": {
+    "top": 24,
+    "left": 90,
+    "right": 24,
+    "bottom": 80
+  },
+  "xAxis": {
+    "name": "Pickup hour",
+    "type": "category"
+  },
+  "yAxis": {
+    "name": "Day",
+    "type": "category",
+    "inverse": true
+  },
+  "series": [
+    {
+      "type": "heatmap",
+      "encode": {
+        "x": "pickup_hour",
+        "y": "pickup_day_name",
+        "value": "trip_count"
+      },
+      "itemStyle": {
+        "borderColor": "rgba(255,255,255,0.35)",
+        "borderWidth": 1
+      }
+    }
+  ],
+  "tooltip": {
+    "trigger": "item"
+  },
+  "visualMap": {
+    "left": "center",
+    "bottom": 8,
+    "orient": "horizontal",
+    "calculable": true
+  }
+}

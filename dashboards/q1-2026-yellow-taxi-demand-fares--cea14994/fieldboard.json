@@ -1,0 +1,91 @@
+{
+  "schemaVersion": 1,
+  "dashboardId": "cea14994-7395-4397-9e8e-4ac7855d12b9",
+  "title": "Q1 2026 Yellow Taxi Demand & Fares",
+  "summary": "Q1 2026 yellow taxi: 11.08M trips; March busiest at 3.95M and February quietest at 3.40M. Median fare ran $15.60-$16.30 while median total ran $23.05-$24.00. Demand peaks 17:00-19:00, strongest Thursday-Friday. Upper East Side South is the top pickup zone (479.8K trips); JFK Airport leads average fare at $57.90.",
+  "datasets": [
+    {
+      "id": "monthly_q1",
+      "question": "Monthly trip volume and typical fare and total amounts for Q1 2026",
+      "sqlFile": "queries/monthly_q1.sql",
+      "expectedColumns": [
+        "data_month",
+        "month_label",
+        "trip_count",
+        "avg_fare_amount",
+        "median_fare_amount",
+        "avg_total_amount",
+        "median_total_amount"
+      ],
+      "maxRows": 10
+    },
+    {
+      "id": "demand_hour_day",
+      "question": "Q1 2026 trip demand by pickup hour and pickup day name",
+      "sqlFile": "queries/demand_hour_day.sql",
+      "expectedColumns": [
+        "pickup_hour",
+        "pickup_day_name",
+        "pickup_iso_dow",
+        "trip_count"
+      ],
+      "maxRows": 200
+    },
+    {
+      "id": "top_zones",
+      "question": "Top pickup zones by Q1 2026 trip volume",
+      "sqlFile": "queries/top_zones.sql",
+      "expectedColumns": [
+        "pu_zone",
+        "pu_borough",
+        "trip_count",
+        "avg_fare_amount",
+        "median_total_amount",
+        "total_revenue"
+      ],
+      "maxRows": 10
+    }
+  ],
+  "widgets": [
+    {
+      "id": "monthly_volume",
+      "datasetId": "monthly_q1",
+      "title": "Monthly trip volume",
+      "description": "Total yellow taxi trips by month across Q1 2026.",
+      "height": 420,
+      "accessibilityText": "Bar chart showing January had 3.72 million trips, February 3.40 million, and March 3.95 million.",
+      "engine": "echarts",
+      "sourceFile": "widgets/monthly_volume.echarts.json"
+    },
+    {
+      "id": "monthly_fares",
+      "datasetId": "monthly_q1",
+      "title": "Typical fare and total amount",
+      "description": "Median fare_amount and median total_amount by month in Q1 2026.",
+      "height": 420,
+      "accessibilityText": "Grouped bar chart showing median fare around 15.6 to 16.3 dollars and median total around 23.05 to 24.00 dollars per month.",
+      "engine": "echarts",
+      "sourceFile": "widgets/monthly_fares.echarts.json"
+    },
+    {
+      "id": "demand_heatmap",
+      "datasetId": "demand_hour_day",
+      "title": "Demand by pickup hour and day",
+      "description": "Heatmap of trip counts by pickup hour (0-23) and pickup day name.",
+      "height": 480,
+      "accessibilityText": "Heatmap showing weekday demand peaks around 17 to 19 hours with Thursday and Friday busiest, and higher weekend overnight demand than weekdays.",
+      "engine": "echarts",
+      "sourceFile": "widgets/demand_heatmap.echarts.json"
+    },
+    {
+      "id": "top_pu_zones",
+      "datasetId": "top_zones",
+      "title": "Top 10 pickup zones",
+      "description": "Busiest pickup zones by trip count in Q1 2026.",
+      "height": 480,
+      "accessibilityText": "Horizontal bar chart showing Upper East Side South, Upper East Side North, Midtown Center, JFK Airport, and Penn Station/Madison Sq West as the top pickup zones by trip count.",
+      "engine": "echarts",
+      "sourceFile": "widgets/top_pu_zones.echarts.json"
+    }
+  ]
+}

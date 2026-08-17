@@ -1,0 +1,1 @@
+SELECT pickup_hour, pickup_day_name, pickup_iso_dow, COUNT(*) AS trip_count FROM tlc.taxi.yellow_trips WHERE data_month >= DATE '2026-01-01' AND data_month < DATE '2026-04-01' GROUP BY pickup_hour, pickup_day_name, pickup_iso_dow ORDER BY pickup_iso_dow, pickup_hour

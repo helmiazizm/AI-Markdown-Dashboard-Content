@@ -1,0 +1,18 @@
+{
+  "schemaVersion": 1,
+  "revisionId": "5a3756f5-0d05-4852-9043-741f6d6775f1",
+  "revisionNumber": 1,
+  "parentRevisionId": null,
+  "restoredFromRevisionId": null,
+  "sourceKind": "agent",
+  "note": "Analyze tlc.taxi.yellow_trips for Q1 2026 only. Cover monthly trip volume, typical fare_amount and total_amount, demand by pickup_hour and pickup_day_name, and top pu_zone. Always GROUP BY; never scan without aggregation. DuckDB SQL against tlc.taxi.yellow_trips only.",
+  "model": "deepseek/deepseek-v4-pro-0813",
+  "runId": "edc57d6a-4e4a-4017-bb04-5ab5b98ee738",
+  "generatedAt": "2026-08-17T12:30:32.097Z",
+  "publicationCommit": "$GIT_COMMIT",
+  "sourceSnapshot": {
+    "id": "453131e6-b16b-4b23-bba8-e9b5883b3513",
+    "objectPrefix": "warehouse:catalog@453131e6-b16b-4b23-bba8-e9b5883b3513",
+    "snapshotDate": "2026-01-01"
+  }
+}

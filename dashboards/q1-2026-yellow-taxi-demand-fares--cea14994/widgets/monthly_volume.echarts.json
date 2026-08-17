@@ -1,0 +1,29 @@
+{
+  "grid": {
+    "top": 24,
+    "left": 70,
+    "right": 24,
+    "bottom": 40
+  },
+  "xAxis": {
+    "name": "Month",
+    "type": "category"
+  },
+  "yAxis": {
+    "name": "Trips",
+    "type": "value"
+  },
+  "series": [
+    {
+      "type": "bar",
+      "encode": {
+        "x": "month_label",
+        "y": "trip_count"
+      },
+      "barMaxWidth": 72
+    }
+  ],
+  "tooltip": {
+    "trigger": "axis"
+  }
+}

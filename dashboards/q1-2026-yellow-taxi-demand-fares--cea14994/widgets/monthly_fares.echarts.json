@@ -1,0 +1,42 @@
+{
+  "grid": {
+    "top": 40,
+    "left": 70,
+    "right": 24,
+    "bottom": 40
+  },
+  "xAxis": {
+    "name": "Month",
+    "type": "category"
+  },
+  "yAxis": {
+    "name": "USD",
+    "type": "value"
+  },
+  "legend": {
+    "top": 0
+  },
+  "series": [
+    {
+      "name": "Median fare",
+      "type": "bar",
+      "encode": {
+        "x": "month_label",
+        "y": "median_fare_amount"
+      },
+      "barMaxWidth": 34
+    },
+    {
+      "name": "Median total",
+      "type": "bar",
+      "encode": {
+        "x": "month_label",
+        "y": "median_total_amount"
+      },
+      "barMaxWidth": 34
+    }
+  ],
+  "tooltip": {
+    "trigger": "axis"
+  }
+}
