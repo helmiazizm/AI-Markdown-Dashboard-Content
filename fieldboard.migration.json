@@ -1,0 +1,8 @@
+{
+  "schemaVersion": 1,
+  "activatedAt": "2026-08-17T12:17:28.687Z",
+  "revisionsMapped": 0,
+  "dashboardsMapped": 0,
+  "rootCommit": "24a1de0d9ddf889cfcdc265f6cf0904f63041eb8",
+  "activationCommit": "$GIT_COMMIT"
+}
